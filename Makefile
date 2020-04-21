@@ -7,6 +7,7 @@ REPO_NAME = $(shell git config --get remote.origin.url | tr ':.' '/'  | rev | cu
 
 # Image metadata
 
+
 # Name of the repository
 SCHEMA_NAME = $(PREFIX)/$(REPO_NAME)
 SCHEMA_DESCRIPTION = My image!
