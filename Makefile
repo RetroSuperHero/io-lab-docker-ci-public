@@ -44,8 +44,8 @@ image:
 	
 push: image
 	docker push $(SCHEMA_NAME):latest
-	docker tag $(SCHEMA_NAME):latest $(SCHEMA_NAME):ca2de2a
-	docker push $(SCHEMA_NAME):ca2de2a
+	docker tag $(SCHEMA_NAME):latest $(SCHEMA_NAME):$(TAG)
+	docker push $(SCHEMA_NAME):$(TAG)
 	
 clean:
 
