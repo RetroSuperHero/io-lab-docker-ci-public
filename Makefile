@@ -29,7 +29,6 @@ SCHEMA_CMD = the command your run this container with
 all: push
 
 image:
-  # TODO: this build command is incomplete, add last flag of this command that tags image as latest upon building it
 	docker build \
 		--build-arg SCHEMA_NAME="$(SCHEMA_NAME)" \
 		--build-arg SCHEMA_DESCRIPTION="$(SCHEMA_DESCRIPTION)" \
@@ -42,15 +41,11 @@ image:
 		--build-arg SCHEMA_CMD="$(SCHEMA_CMD)" \
 		-t $(SCHEMA_NAME) \
 		.	
-  # TODO: last part of this command that tags just built image with a specyfic tag
 	
 push: image
 	docker push $(SCHEMA_NAME):latest
 	docker tag $(SCHEMA_NAME):latest $(SCHEMA_NAME):ca2de2a
 	docker push $(SCHEMA_NAME):ca2de2a
-	docker tag $(SCHEMA_NAME):ca2de2a $(SCHEMA_NAME):v1.0
-	docker push $(SCHEMA_NAME):v1.0
-	# TODO: two commands, first pushes the latest image, second pushes the image tagged with specyfic tag
 	
 clean:
 
