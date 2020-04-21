@@ -48,6 +48,8 @@ push: image
 	docker push $(SCHEMA_NAME):latest
 	docker tag $(SCHEMA_NAME):latest $(SCHEMA_NAME):ca2de2a
 	docker push $(SCHEMA_NAME):ca2de2a
+	docker tag $(SCHEMA_NAME):ca2de2a $(SCHEMA_NAME):v1.0
+	docker push $(SCHEMA_NAME):v1.0
 	# TODO: two commands, first pushes the latest image, second pushes the image tagged with specyfic tag
 	
 clean:
